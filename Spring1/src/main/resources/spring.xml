@@ -5,10 +5,67 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- bean definitions here -->
-	<bean id="alien" class="org.practice.Spring1.Alien">
+
+	<!-- Scope -->
+	<!--
+		<bean id="alien" class="org.practice.Spring1.Alien" scope="prototype">
+		</bean>
+	-->
+
+<!--		Setter Injection-->
+<!--		<bean id="alien" class="org.practice.Spring1.Alien" >-->
+<!--			<property name="age" value="21"></property>-->
+<!--		</bean>-->
+
+	<!-- Ref Attribute-->
+<!--	<bean id="alien" class="org.practice.Spring1.Alien">-->
+<!--		<property name="age" value="25"></property>-->
+<!--		<property name="laptop" ref="lap"></property>-->
+<!--	</bean>-->
+<!--	<bean id="lap" class="org.practice.Spring1.Laptop">-->
+<!--	</bean>-->
+	<!--Constructor Injection-->
+<!--	<bean id="alien" class="org.practice.Spring1.Alien">-->
+<!--&lt;!&ndash;		<constructor-arg value="21"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg ref="lap"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg type="int" value="21"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg type="com.practice.Spring1.Laptop" ref="lap"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg index="0" value="21"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg index="1" ref="lap"></constructor-arg>&ndash;&gt;-->
+
+<!--&lt;!&ndash;		<constructor-arg name="age" value="21"></constructor-arg>&ndash;&gt;-->
+<!--&lt;!&ndash;		<constructor-arg name="lap" ref="lap"></constructor-arg>&ndash;&gt;-->
+<!--		<property name="age" value="25"></property>-->
+<!--		<property name="computer" ref="lap"></property>-->
+<!--	</bean>-->
+<!--    <bean id="lap" class="org.practice.Spring1.Laptop">-->
+<!--    </bean>-->
+<!--	<bean id="computer" class="org.practice.Spring1.Laptop">-->
+<!--	</bean>-->
+<!--	<bean id="computer2" class="org.practice.Spring1.Desktop">-->
+<!--	</bean>-->
+
+	<!-- Autowire by name will search for id = "computer" in the beans"-->
+<!--	<bean id="alien" class="org.practice.Spring1.Alien" autowire="byName">-->
+<!--		<property name="age" value="25"></property>-->
+<!--	</bean>-->
+
+	<!-- Autowire by type will search for type in the beans"-->
+<!--		<bean id="alien" class="org.practice.Spring1.Alien" autowire="byType">-->
+<!--			<property name="age" value="25"></property>-->
+<!--		</bean>-->
+
+<!--	<bean id="computer1" class="org.practice.Spring1.Laptop">-->
+<!--	</bean>-->
+<!--	<bean id="computer" class="org.practice.Spring1.Desktop">-->
+<!--	</bean>-->
+<!--	Primary bean-->
+	<bean id="alien" class="org.practice.Spring1.Alien" autowire="byType">
+		<property name="age" value="25"></property>
 	</bean>
-	
-	<bean id="alien2" class="org.practice.Spring1.Alien">
+
+	<bean id="computer1" class="org.practice.Spring1.Laptop" primary="true">
 	</bean>
-	
+	<bean id="computer" class="org.practice.Spring1.Desktop" lazy-init="true">
+	</bean>
 </beans>
