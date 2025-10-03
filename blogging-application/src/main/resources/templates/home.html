@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name = "viewpost" content="width=device-width, intitial-scale=1">
+    <title>Blog :: Home</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1> Spring Boot Blog Application </h1>
+        <hr />
+        <ul>
+            <li> <a th:href="@{/posts/new}">Write a new post</a></li>
+        </ul>
+        <div class = "posts-container">
+            <div class = "posts" th:each="post: ${posts}">
+                <h2>
+                    <a th:href="@{'/posts/' + ${post.id}}" th:text ="${post.title}">Title</a>
+                </h2>
+                <h5 th:text = "'Written By: ' + ${post.account.firstName} + ' ' + ${post.account.lastName}">Account Name</h5>
+                <h5 th:text = "'Published on ' + ${post.createdAt}">Created At</h5>
+                <p th:text = "${post.body}">Body Text</p>
+                <br/>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <ul>
+        <li> <a th:href="@{/register}">Register</a></li>
+        <li> <a th:href="@{/login}">Login</a></li>
+        <li> <a th:href="@{/posts/new}">Write a new post</a></li>
+    </ul>
+</body>
+</html>
+
