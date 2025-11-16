@@ -24,9 +24,8 @@ public class MyUserDetailServiceImpl implements MyUserDetailService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<Account> optionalAccount = accountService.findByEmail(username);
 
-        if (!optionalAccount.isPresent()) {
+        if (!optionalAccount.isPresent())
             throw new UsernameNotFoundException("Username not found");
-        }
 
         Account account = optionalAccount.get();
 
